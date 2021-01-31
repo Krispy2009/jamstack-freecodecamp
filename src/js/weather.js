@@ -10,7 +10,6 @@ function success(pos) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       document.querySelector("#city").textContent = data.name;
       document.querySelector("#temp").textContent = data.main.temp + "°C";
       document.querySelector("#main").textContent = data.weather[0].main;
@@ -18,14 +17,11 @@ function success(pos) {
 
       document.querySelector("#weather").classList.remove("hidden");
     });
-
-  console.log(lat, lon, acc);
 }
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
 }
-console.log("herelo");
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error);
 }
