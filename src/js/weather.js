@@ -10,14 +10,13 @@ function success(pos) {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       document.querySelector("#city").textContent = data.name;
-      document.querySelector("#temp").textContent = data.main.temp;
+      document.querySelector("#temp").textContent = data.main.temp + "°C";
       document.querySelector("#main").textContent = data.weather[0].main;
       document.querySelector("#desc").textContent = data.weather[0].description;
 
       document.querySelector("#weather").classList.remove("hidden");
-
-      console.log(data);
     });
 
   console.log(lat, lon, acc);
